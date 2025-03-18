@@ -147,7 +147,7 @@ export default function ZoomMeeting() {
     if (!signature || !meetingNumber || !passWord) return;
 
     console.log("Joining bot as a host...");
-    // await startRTMPStream(meetingNumber);
+    await startRTMPStream(meetingNumber);
     if (withBot) {
       setTimeout(autoJoin, 5000);
     }

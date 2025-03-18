@@ -11,7 +11,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
             return NextResponse.json({ error: "Missing meetingId" }, { status: 400 });
         }
 
-        const accessTokenResponse = await fetch("/api/token");
+        // Construct absolute URL for server-side API call
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001";
+        const accessTokenResponse = await fetch(`${baseUrl}/api/token`);
+        
+        if (!accessTokenResponse.ok) {
+            throw new Error(`Failed to fetch access token: ${accessTokenResponse.statusText}`);
+        }
+
         const accessToken = await accessTokenResponse.json();
         console.log(accessToken);
 

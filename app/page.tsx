@@ -135,10 +135,10 @@ export default function ZoomMeeting() {
             console.log("Joined successfully");
             botMeeting(); // Call the bot function after joining
           },
-          error: (error) => console.error("Join Error:", error),
+          error: (error:any) => console.error("Join Error:", error),
         });
       },
-      error: (error) => console.error("Init Error:", error),
+      error: (error:any) => console.error("Init Error:", error),
     });
   };
 
@@ -159,7 +159,7 @@ export default function ZoomMeeting() {
     if (isClient && signature && meetingNumber && passWord) {
       startMeeting();
     }
-  }, [isClient, signature, meetingNumber, passWord]);
+  }, [startMeeting,isClient, signature, meetingNumber, passWord]);
 
   const autoJoin = async (): Promise<void> => {
     if (!signature || !meetingNumber || !passWord) {

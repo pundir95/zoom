@@ -159,7 +159,7 @@ export default function ZoomMeeting() {
     if (isClient && signature && meetingNumber && passWord) {
       startMeeting();
     }
-  }, [startMeeting,isClient, signature, meetingNumber, passWord]);
+  }, [isClient, signature, meetingNumber, passWord]);
 
   const autoJoin = async (): Promise<void> => {
     if (!signature || !meetingNumber || !passWord) {

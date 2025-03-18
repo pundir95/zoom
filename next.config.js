@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'server',  // Change this to 'server' to support dynamic functionality
+  output: 'standalone',  
   eslint: {
     ignoreDuringBuilds: true,
   },
